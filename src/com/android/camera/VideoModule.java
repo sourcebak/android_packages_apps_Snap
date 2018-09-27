@@ -1462,8 +1462,8 @@ public class VideoModule implements CameraModule,
         if (mFocusManager != null) {
             mFocusManager.removeMessages();
         } else {
-            CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
-            boolean mirror = (info.facing == CameraInfo.CAMERA_FACING_FRONT);
+            CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
+            boolean mirror = (info.facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT);
             String[] defaultFocusModes = mActivity.getResources().getStringArray(
                     R.array.pref_video_focusmode_default_array);
             mFocusManager = new FocusOverlayManager(mPreferences, defaultFocusModes,
@@ -3098,8 +3098,8 @@ public class VideoModule implements CameraModule,
         resizeForPreviewAspectRatio();
         initializeVideoControl();
 
-        CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
-        boolean mirror = (info.facing == CameraInfo.CAMERA_FACING_FRONT);
+        CameraHolder.CameraInfo info = CameraHolder.instance().getCameraInfo()[mCameraId];
+        boolean mirror = (info.facing == CameraHolder.CameraInfo.CAMERA_FACING_FRONT);
         mParameters = mCameraDevice.getParameters();
         mFocusManager.setMirror(mirror);
         mFocusManager.setParameters(mParameters);
